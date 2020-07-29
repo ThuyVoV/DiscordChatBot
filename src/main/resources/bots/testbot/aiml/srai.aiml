@@ -33,15 +33,20 @@
 <category>
    <pattern>_ SCHOOL</pattern>
    <template>
-      <srai>SCHOOL</srai>
+      this is underscore before school
+   </template>
+</category>
+<category>
+   <pattern>SCHOOL *</pattern>
+   <template>
+      this is asterisk after school, star: <star/>
    </template>
 </category>
 <category>
    <pattern>SCHOOL _</pattern>
    <template>
-      <srai>SCHOOL</srai>
+      this is underscore after school
    </template>
 </category>
-
 
 </aiml>
