@@ -10,9 +10,10 @@ import org.alicebot.ab.utils.IOUtils;
  
 public class App {
     private static final boolean TRACE_MODE = false;
-    static String botName = "super";
+    static String botName = "testbot";
  
-    public static void main(String[] args) {
+    @SuppressWarnings("rawtypes")
+	public static void main(String[] args) {
         try {
  
             String resourcesPath = getResourcesPath();
@@ -30,7 +31,7 @@ public class App {
                     textLine = MagicStrings.null_input;
                 if (textLine.equals("q")) {
                     System.exit(0);
-                } else if (textLine.equals("wq")) {
+                } else if (textLine.equals("wqwq")) {
                     bot.writeQuit();
                     System.exit(0);
                 } else {
