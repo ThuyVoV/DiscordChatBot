@@ -17,7 +17,7 @@ public class App {
         try {
  
             String resourcesPath = getResourcesPath();
-            //System.out.println(resourcesPath);	
+            System.out.println(resourcesPath);	
             MagicBooleans.trace_mode = TRACE_MODE;
             Bot bot = new Bot(botName, resourcesPath);
             Chat chatSession = new Chat(bot);
