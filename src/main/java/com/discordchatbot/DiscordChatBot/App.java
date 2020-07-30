@@ -37,7 +37,9 @@ public class App {
                 } else {
                     String request = textLine;
                     if (MagicBooleans.trace_mode)
-                        System.out.println("STATE=" + request + ":THAT=" + ((History) chatSession.thatHistory.get(0)).get(0) + ":TOPIC=" + chatSession.predicates.get("topic"));
+                        System.out.println("STATE=" + request + ":THAT=" + 
+                        		((History) chatSession.thatHistory.get(0)).get(0) + 
+                        		":TOPIC=" + chatSession.predicates.get("topic"));
                     String response = chatSession.multisentenceRespond(request);
                     while (response.contains("&lt;"))
                         response = response.replace("&lt;", "<");
@@ -52,10 +54,14 @@ public class App {
     }
  
     private static String getResourcesPath() {
+    	
+    	//getting base directory of the project
         File currDir = new File(".");
         String path = currDir.getAbsolutePath();
+        //taking off the "/." at the end of the string
         path = path.substring(0, path.length() - 2);
         System.out.println(path);
+        //append the path to resources folder
         String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
         return resourcesPath;
     }

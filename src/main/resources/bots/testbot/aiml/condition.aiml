@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<aiml>
+   <category>
+      <pattern> i went to * and * </pattern>
+      
+      <template>
+         <think><set name = "state"> <star index="1"/> </set></think>
+         <think><set name = "place"> <star index="2"/> </set></think>
+         
+         <condition name = "state" value = "happy">
+            I am happy!
+         </condition>
+         
+         <condition name = "state" value = "sad">
+            I am sad!
+         </condition>
+         
+         <condition name = "place" value = "san diego">
+         	I am in san diego!
+         </condition>
+         
+         <condition name = "place" value = "california">
+            I am in california!
+         </condition>
+         
+         
+      </template>
+      
+   </category>
+</aiml>

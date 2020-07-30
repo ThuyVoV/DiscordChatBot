@@ -3,7 +3,7 @@
    <category>
       <pattern>I like to play *</pattern>
       <template>
-         Hello, i like to play <set name = "activity"> <star/> </set> too!
+         Hello, i like to play <set name = "activity"> <star/> </set> too!<set name = "oink"> oink!! </set>
       </template>  
    </category>  
    
@@ -11,6 +11,7 @@
       <pattern>Good Night</pattern>
       <template>
          Good night, lets play <get name = "activity"/> sometimes!
+         <get name ="oink"/>
       </template>  
    </category>  
    

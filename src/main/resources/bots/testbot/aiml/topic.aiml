@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<aiml>
+   <category>
+      <pattern>LET DISCUSS *</pattern>
+      <template>Yes <set name = "topic"><star/></set></template>  
+   </category>
+   
+   <topic name = "movies">
+      <category>
+         <pattern> movies _ </pattern>
+         <template>Watching good movie refreshes our minds.</template>
+      </category>
+      
+      <category>
+         <pattern> I LOVE WATCHING COMEDY </pattern>
+         <template>I like comedy movies too.</template>
+      </category>
+   </topic>
+   
+   <topic name = "games">
+      <category>
+         <pattern> games _ </pattern>
+         <template>Playing game is a good escape</template>
+      </category>
+      
+      <category>
+         <pattern> I LOVE PLAYING GAMES </pattern>
+         <template>I like playing games too.</template>
+      </category>
+      
+      <category>
+         <pattern> yes, please </pattern>
+         <template>I like playing games too. please.</template>
+      </category>
+   </topic>
+   
+</aiml>

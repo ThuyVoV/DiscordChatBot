@@ -1,0 +1,8 @@
+<aiml>
+   <category>
+      <pattern>I like to eat *</pattern>
+      <template>
+         Hello, i like that <set name = "activity"> <star/> </set>too!
+      </template>  
+   </category> 
+</aiml>
