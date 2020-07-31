@@ -1,0 +1,19 @@
+<aiml>
+	<category>
+		<pattern>
+			yummy yummy
+		</pattern>
+		<template>
+			yummy in my tummy
+		</template>
+	</category>
+	
+	<category>
+		<pattern>
+			setyum *
+		</pattern>
+		<template>
+			<set name="yum"> <star/> </set>
+		</template>
+	</category>
+</aiml>

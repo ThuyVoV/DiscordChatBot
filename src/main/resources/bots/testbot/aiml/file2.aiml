@@ -1,0 +1,19 @@
+<aiml>
+	<category>
+		<pattern>
+			yum
+		</pattern>
+		<template>
+			<srai>yummy yummy</srai>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>
+			getyum
+		</pattern>
+		<template>
+			<get name="yum"/>
+		</template>
+	</category>
+</aiml>
