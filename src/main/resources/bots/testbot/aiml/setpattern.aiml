@@ -16,7 +16,7 @@
 		<pattern>MY FAVORITE COLOR IS RED</pattern>
 		<template>
 			<set name="favoritecolor">RED</set> is my favorite color too! 33
-			<think><set name="it"><set name="topic">Green</set></set></think>
+			<think><set name="it"><set name="topic">Red</set></set></think>
 		</template>
 	</category>
 	
@@ -27,7 +27,7 @@
 			<think><set name="it"><set name="topic">Green</set></set></think>
 		</template>
 	</category>
-	s
+
 	<category>
 		<pattern>I ENJOY <set>color</set></pattern>
 		<template><srai>MY FAVORITE COLOR IS <star/></srai></template>

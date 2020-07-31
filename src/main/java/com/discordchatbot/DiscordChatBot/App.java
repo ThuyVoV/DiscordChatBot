@@ -29,17 +29,20 @@ public class App {
                 textLine = IOUtils.readInputTextLine();
                 if ((textLine == null) || (textLine.length() < 1))
                     textLine = MagicStrings.null_input;
+                
                 if (textLine.equals("q")) {
                     System.exit(0);
-                } else if (textLine.equals("wqwq")) {
+                } 
+                else if (textLine.equals("wqwq")) {
                     bot.writeQuit();
                     System.exit(0);
-                } else {
+                } 
+                else {
                     String request = textLine;
-                    if (MagicBooleans.trace_mode)
-                        System.out.println("STATE=" + request + ":THAT=" + 
-                        		((History) chatSession.thatHistory.get(0)).get(0) + 
-                        		":TOPIC=" + chatSession.predicates.get("topic"));
+//                    if (MagicBooleans.trace_mode)
+//                        System.out.println("STATE=" + request + ":THAT=" + 
+//                        		((History) chatSession.thatHistory.get(0)).get(0) + 
+//                        		":TOPIC=" + chatSession.predicates.get("topic"));
                     String response = chatSession.multisentenceRespond(request);
                     while (response.contains("&lt;"))
                         response = response.replace("&lt;", "<");

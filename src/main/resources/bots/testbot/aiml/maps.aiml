@@ -1,0 +1,9 @@
+<aiml>
+	<category>
+		<pattern>here comes the *</pattern>
+		<template>
+			<think><set name="mapping"> <map name="randommap"><star/></map></set></think>
+			there is the <get name="mapping"/>!
+		</template>
+	</category>
+</aiml>
