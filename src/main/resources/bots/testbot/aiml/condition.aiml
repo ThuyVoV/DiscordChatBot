@@ -22,8 +22,6 @@
          <condition name = "place" value = "california">
             I am in california!
          </condition>
-         
-         
       </template>
       
    </category>

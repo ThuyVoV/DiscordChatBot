@@ -1,0 +1,36 @@
+<aiml>
+	<category>
+		<pattern>MY FAVORITE COLOR IS <set>color</set></pattern>
+		<template>
+			<set name="favoritecolor"><formal><star/></formal></set> is a nice color. 11
+			<think><set name="it"><set name="topic"><star/></set></set></think>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>MY FAVORITE COLOR IS *</pattern>
+		<template>I didn't recognize <star/> as a color. 22</template>
+	</category>
+	
+	<category>
+		<pattern>MY FAVORITE COLOR IS RED</pattern>
+		<template>
+			<set name="favoritecolor">RED</set> is my favorite color too! 33
+			<think><set name="it"><set name="topic">Green</set></set></think>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>MY FAVORITE COLOR IS CYAN</pattern>
+		<template>
+			<set name="favoritecolor">CYAN</set> is my favorite color too! 44
+			<think><set name="it"><set name="topic">Green</set></set></think>
+		</template>
+	</category>
+	s
+	<category>
+		<pattern>I ENJOY <set>color</set></pattern>
+		<template><srai>MY FAVORITE COLOR IS <star/></srai></template>
+	</category>
+	
+</aiml>
