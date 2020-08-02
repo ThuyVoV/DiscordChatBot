@@ -17,15 +17,7 @@
 			<set name="yum"> <star/> </set>
 		</template>
 	</category>
-	
-	<category>
-		<pattern>
-			*
-		</pattern>
-		<template>
-			<input/>
-		</template>
-	</category>
+
 	
 	<category>
 		<pattern>WHAT DID YOU SAY</pattern>
@@ -39,8 +31,8 @@
 	</category>
 	
 	<category>
-		<pattern>say in 3</pattern>
-		<delay>3</delay>
-		<template> ok <delay>3</delay> YES!!</template>
+		<pattern>say *</pattern>
+
+		<template> ok  YES!!</template>
 	</category>
 </aiml>
