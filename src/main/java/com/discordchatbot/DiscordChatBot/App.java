@@ -39,10 +39,10 @@ public class App {
                 } 
                 else {
                     String request = textLine;
-//                    if (MagicBooleans.trace_mode)
-//                        System.out.println("STATE=" + request + ":THAT=" + 
-//                        		((History) chatSession.thatHistory.get(0)).get(0) + 
-//                        		":TOPIC=" + chatSession.predicates.get("topic"));
+                    if (MagicBooleans.trace_mode)
+                        System.out.println("STATE=" + request + ":THAT=" + 
+                        		((History) chatSession.thatHistory.get(0)).get(0) + 
+                        		":TOPIC=" + chatSession.predicates.get("topic"));
                     String response = chatSession.multisentenceRespond(request);
                     while (response.contains("&lt;"))
                         response = response.replace("&lt;", "<");

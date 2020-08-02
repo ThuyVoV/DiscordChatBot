@@ -16,4 +16,24 @@
 			<set name="yum"> <star/> </set>
 		</template>
 	</category>
+	
+	<category>
+		<pattern>
+			*
+		</pattern>
+		<template>
+			<input/>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>WHAT DID YOU SAY</pattern>
+		<template>
+			<think><set name="response"> <response index="1"/></set></think>
+			<condition name="response">
+				<li value="unknown"> I didn't say anything</li>
+				<li> I said, <response index="1"/></li>
+			</condition>
+		</template>
+	</category>
 </aiml>
