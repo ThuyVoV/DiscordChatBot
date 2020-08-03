@@ -19,6 +19,7 @@ public class ShutdownCommand extends Command {
     	event.getChannel().sendMessage("shutting down").queue();
         event.reactWarning();
         event.getJDA().shutdown();
+        System.exit(0);
     }
     
 }

@@ -18,45 +18,48 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class ChatCommand extends Command{
-	
-    private static final boolean TRACE_MODE = false;
-    static String botName = "testbot";
-    private final EventWaiter waiter;
+public class ChatCommand extends Command {
+
+	private static final boolean TRACE_MODE = false;
+	static String botName = "testbot";
+	private final EventWaiter waiter;
 
 	public ChatCommand(EventWaiter waiter) {
 		this.waiter = waiter;
 		this.name = "chat";
 		this.help = "Talks with the bot";
-		this.guildOnly=false;
+		this.guildOnly = false;
 	}
-	
+
 	@Override
 	protected void execute(CommandEvent event) {
 		event.reply("hello there");
-		
-		 try {
-			 String resourcesPath = getResourcesPath();
-	            System.out.println(resourcesPath);	
-	            MagicBooleans.trace_mode = TRACE_MODE;
-	            Bot bot = new Bot(botName, resourcesPath);
-	            Chat chatSession = new Chat(bot);
-	            bot.brain.nodeStats();
-	            String textLine = "";
-	 
-	            //while(true) {
-	            	
-	            	waiter.waitForEvent(MessageReceivedEvent.class, 
-	            			
-	                        // make sure it's by the same user, and in the same channel, and for safety, a different message
-	                        e -> e.getAuthor().equals(event.getAuthor()) 
-	                                && e.getChannel().equals(event.getChannel()), 
-	                        // respond, inserting the name they listed into the response
-	                        e -> event.reply(chatSession.multisentenceRespond(event.getMessage().toString())),
-	                        // if the user takes more than a minute, time out
-	                        1, TimeUnit.MINUTES, () -> event.reply("Sorry, you took too long."));
-	            	
-	            	
+
+		try {
+			String resourcesPath = getResourcesPath();
+			// System.out.println(resourcesPath);
+			MagicBooleans.trace_mode = TRACE_MODE;
+			Bot bot = new Bot(botName, resourcesPath);
+			Chat chatSession = new Chat(bot);
+			bot.brain.nodeStats();
+			// String textLine = "";
+
+			
+
+				waiter.waitForEvent(MessageReceivedEvent.class,
+
+						// make sure it's by the same user, and in the same channel, and for safety, a
+						// different message
+						e -> e.getAuthor().equals(event.getAuthor()) && e.getChannel().equals(event.getChannel())
+								&& !e.getMessage().equals(event.getMessage()) && !e.getAuthor().isBot(),
+						// respond, inserting the name they listed into the response
+						e -> event.reply(chatSession.multisentenceRespond(event.getMessage().toString())),
+						// if the user takes more than a minute, time out
+						1, TimeUnit.MINUTES, () -> event.reply("Sorry, you took too long."));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 //	                //System.out.print("You : ");
 //	            	textLine = event.getMessage().getContentRaw();
 //	                textLine = IOUtils.readInputTextLine();
@@ -86,30 +89,19 @@ public class ChatCommand extends Command{
 //	                    //System.out.println("Robot : " + response);
 //	                    event.getChannel().sendMessage(response).queue();
 //	                }
-	            //}
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-		
 	}
-	
-//	public String response(Chat chatSession, CommandEvent event) {
-//		Message request = event.getMessage();
-//		 response = chatSession.multisentenceRespond(event.getMessage().toString());
-//		return chatSession.multisentenceRespond(event.getMessage());
-//	}
-	
-    private static String getResourcesPath() {
-    	
-    	//getting base directory of the project
-        File currDir = new File(".");
-        String path = currDir.getAbsolutePath();
-        //taking off the "/." at the end of the string
-        path = path.substring(0, path.length() - 2);
-        System.out.println(path);
-        //append the path to resources folder
-        String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
-        return resourcesPath;
-    }
+
+	private static String getResourcesPath() {
+
+		// getting base directory of the project
+		File currDir = new File(".");
+		String path = currDir.getAbsolutePath();
+		// taking off the "/." at the end of the string
+		path = path.substring(0, path.length() - 2);
+		// System.out.println(path);
+		// append the path to resources folder
+		String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
+		return resourcesPath;
+	}
 
 }
