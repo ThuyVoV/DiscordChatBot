@@ -51,7 +51,7 @@ public class ChatCommand extends Command {
 						// make sure it's by the same user, and in the same channel, and for safety, a
 						// different message
 						e -> e.getAuthor().equals(event.getAuthor()) && e.getChannel().equals(event.getChannel())
-								&& !e.getMessage().equals(event.getMessage()) && !e.getAuthor().isBot(),
+								&& !e.getMessage().equals(event.getMessage()) && !e.getMember().getUser().isBot(),
 						// respond, inserting the name they listed into the response
 						e -> event.reply(chatSession.multisentenceRespond(event.getMessage().toString())),
 						// if the user takes more than a minute, time out
