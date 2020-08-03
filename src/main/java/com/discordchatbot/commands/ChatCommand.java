@@ -1,6 +1,7 @@
 package com.discordchatbot.commands;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
@@ -9,15 +10,22 @@ import org.alicebot.ab.MagicBooleans;
 import org.alicebot.ab.MagicStrings;
 import org.alicebot.ab.utils.IOUtils;
 
+import com.discordchatbot.DiscordChatBot.Config;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
+import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
+
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ChatCommand extends Command{
 	
     private static final boolean TRACE_MODE = false;
     static String botName = "testbot";
+    private final EventWaiter waiter;
 
-	public ChatCommand() {
+	public ChatCommand(EventWaiter waiter) {
+		this.waiter = waiter;
 		this.name = "chat";
 		this.help = "Talks with the bot";
 		this.guildOnly=false;
@@ -25,11 +33,10 @@ public class ChatCommand extends Command{
 	
 	@Override
 	protected void execute(CommandEvent event) {
-		event.getChannel().sendMessage("hello!").queue();
+		event.reply("hello there");
 		
 		 try {
-			 
-	            String resourcesPath = getResourcesPath();
+			 String resourcesPath = getResourcesPath();
 	            System.out.println(resourcesPath);	
 	            MagicBooleans.trace_mode = TRACE_MODE;
 	            Bot bot = new Bot(botName, resourcesPath);
@@ -37,40 +44,60 @@ public class ChatCommand extends Command{
 	            bot.brain.nodeStats();
 	            String textLine = "";
 	 
-	            while(true) {
-	                System.out.print("You : ");
-	                textLine = IOUtils.readInputTextLine();
-	                if ((textLine == null) || (textLine.length() < 1))
-	                    textLine = MagicStrings.null_input;
-	                
-	                if (textLine.equals("?shutdown")) {
-	                    break;
-	                	//System.exit(0);
-	                } 
-	                else if (textLine.equals("wqwq")) {
-	                    bot.writeQuit();
-	                    break;
-	                    //System.exit(0);
-	                } 
-	                else {
-	                    String request = textLine;
-	                    if (MagicBooleans.trace_mode)
-	                        System.out.println("STATE=" + request + ":THAT=" + 
-	                        		((History) chatSession.thatHistory.get(0)).get(0) + 
-	                        		":TOPIC=" + chatSession.predicates.get("topic"));
-	                    String response = chatSession.multisentenceRespond(request);
-	                    while (response.contains("&lt;"))
-	                        response = response.replace("&lt;", "<");
-	                    while (response.contains("&gt;"))
-	                        response = response.replace("&gt;", ">");
-	                    System.out.println("Robot : " + response);
-	                }
-	            }
+	            //while(true) {
+	            	
+	            	waiter.waitForEvent(MessageReceivedEvent.class, 
+	            			
+	                        // make sure it's by the same user, and in the same channel, and for safety, a different message
+	                        e -> e.getAuthor().equals(event.getAuthor()) 
+	                                && e.getChannel().equals(event.getChannel()), 
+	                        // respond, inserting the name they listed into the response
+	                        e -> event.reply(chatSession.multisentenceRespond(event.getMessage().toString())),
+	                        // if the user takes more than a minute, time out
+	                        1, TimeUnit.MINUTES, () -> event.reply("Sorry, you took too long."));
+	            	
+	            	
+//	                //System.out.print("You : ");
+//	            	textLine = event.getMessage().getContentRaw();
+//	                textLine = IOUtils.readInputTextLine();
+//	                if ((textLine == null) || (textLine.length() < 1))
+//	                    textLine = MagicStrings.null_input;
+//	                
+//	                if (textLine.equals(Config.get("PREFIX")+"chat stop")) {
+//	                    break;
+//	                	//System.exit(0);
+//	                } 
+//	                else if (textLine.equals(Config.get("PREFIX")+"wqwq")) {
+//	                    bot.writeQuit();
+//	                    break;
+//	                    //System.exit(0);
+//	                } 
+//	                else {
+//	                    String request = textLine;
+////	                    if (MagicBooleans.trace_mode)
+////	                        System.out.println("STATE=" + request + ":THAT=" + 
+////	                        		((History) chatSession.thatHistory.get(0)).get(0) + 
+////	                        		":TOPIC=" + chatSession.predicates.get("topic"));
+//	                    String response = chatSession.multisentenceRespond(request);
+//	                    while (response.contains("&lt;"))
+//	                        response = response.replace("&lt;", "<");
+//	                    while (response.contains("&gt;"))
+//	                        response = response.replace("&gt;", ">");
+//	                    //System.out.println("Robot : " + response);
+//	                    event.getChannel().sendMessage(response).queue();
+//	                }
+	            //}
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 		
 	}
+	
+//	public String response(Chat chatSession, CommandEvent event) {
+//		Message request = event.getMessage();
+//		 response = chatSession.multisentenceRespond(event.getMessage().toString());
+//		return chatSession.multisentenceRespond(event.getMessage());
+//	}
 	
     private static String getResourcesPath() {
     	
