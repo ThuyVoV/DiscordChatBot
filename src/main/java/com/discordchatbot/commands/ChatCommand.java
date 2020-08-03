@@ -20,6 +20,7 @@ public class ChatCommand extends Command{
 	public ChatCommand() {
 		this.name = "chat";
 		this.help = "Talks with the bot";
+		this.guildOnly=false;
 	}
 	
 	@Override
@@ -43,11 +44,13 @@ public class ChatCommand extends Command{
 	                    textLine = MagicStrings.null_input;
 	                
 	                if (textLine.equals("?shutdown")) {
-	                    System.exit(0);
+	                    break;
+	                	//System.exit(0);
 	                } 
 	                else if (textLine.equals("wqwq")) {
 	                    bot.writeQuit();
-	                    System.exit(0);
+	                    break;
+	                    //System.exit(0);
 	                } 
 	                else {
 	                    String request = textLine;
