@@ -12,6 +12,7 @@ import org.alicebot.ab.MagicStrings;
 import org.alicebot.ab.utils.IOUtils;
 
 import com.discordchatbot.commands.ChatCommand;
+import com.discordchatbot.commands.ChatCommand2;
 import com.discordchatbot.commands.ShutdownCommand;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
@@ -46,6 +47,7 @@ public class App {
 
         jda.addEventListener(client);
         jda.addEventListener(waiter);
+        jda.addEventListener(new ChatCommand2());
     	
 //        try {
 // 
