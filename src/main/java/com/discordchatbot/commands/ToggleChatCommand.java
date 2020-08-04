@@ -4,7 +4,9 @@ import java.io.File;
 
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
+import org.alicebot.ab.MagicBooleans;
 
+import com.discordchatbot.DiscordChatBot.Config;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
@@ -18,27 +20,45 @@ public class ToggleChatCommand extends Command{
 	public static Chat chatSession;
 
 	public ToggleChatCommand() {
-		this.name = "togglechat";
+		this.name = "chat";
 		this.help = "turns the chat function on or off";
+		this.arguments = "[on/off]";
 	}
 	
 	@Override
 	protected void execute(CommandEvent event) {
+		String[] args = event.getMessage().getContentRaw().split(" ");
 		
-		if(chatEnable) {
-			event.reply("turning chat function off");
+		
+		
+		if (args.length < 2) {
+			event.reply("```Please provide an argument:\n" + 
+					Config.get("PREFIX") + name + " " + getArguments() +"```");
+			return;
+		}
+			
+		
+		if(args[1].equalsIgnoreCase("off")) {
+			//event.reply("turning chat function off");
 			bot = null;
 			chatSession = null;
 			System.gc();
 			chatEnable = false;
+			System.out.println("chat off");
+			
+			event.reply("```Chat function off```");
 		}
-		else {
-			event.reply("turning chat function on");
+		else if (args[1].equalsIgnoreCase("on")){
+			//event.reply("turning chat function on");
+			
 			resourcesPath = getResourcesPath();
 			bot = new Bot(botName, resourcesPath);
 			chatSession = new Chat(bot);
 			bot.brain.nodeStats();
+			MagicBooleans.trace_mode = TRACE_MODE;
 			chatEnable = true;
+			
+			System.out.println("chat on");
 		}
 		
 	}

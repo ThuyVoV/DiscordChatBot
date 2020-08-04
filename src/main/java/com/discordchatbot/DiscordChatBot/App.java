@@ -1,18 +1,10 @@
 package com.discordchatbot.DiscordChatBot;
 
-import java.io.File;
+
 
 import javax.security.auth.login.LoginException;
 
-import org.alicebot.ab.Bot;
-import org.alicebot.ab.Chat;
-import org.alicebot.ab.History;
-import org.alicebot.ab.MagicBooleans;
-import org.alicebot.ab.MagicStrings;
-import org.alicebot.ab.utils.IOUtils;
-
 import com.discordchatbot.commands.ChatCommand;
-import com.discordchatbot.commands.ChatCommand2;
 import com.discordchatbot.commands.ShutdownCommand;
 import com.discordchatbot.commands.ToggleChatCommand;
 import com.jagrosh.jdautilities.command.CommandClient;
@@ -27,7 +19,7 @@ public class App {
 //    private static final boolean TRACE_MODE = false;
 //    static String botName = "testbot";
  
-    @SuppressWarnings("rawtypes")
+
 	public static void main(String[] args) throws LoginException {
     	
     	JDA jda = JDABuilder.createDefault(Config.get("TOKEN")).build();
@@ -49,7 +41,7 @@ public class App {
 
         jda.addEventListener(client);
         jda.addEventListener(waiter);
-        jda.addEventListener(new ChatCommand2());
+        jda.addEventListener(new ChatCommand());
     	
 //        try {
 // 

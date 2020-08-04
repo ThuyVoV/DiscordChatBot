@@ -25,4 +25,21 @@
       </template>
       
    </category>
+   
+   <category>
+   		<pattern> ~chat on</pattern>
+   		<think><set name = "toggle"> on </set></think>
+   		<template>
+   			```chat function on```
+   		</template>
+   </category>
+   
+   <category>
+   		<pattern> ~chat off</pattern>
+   		<think><set name = "toggle"> on </set></think>
+   		<template>
+   			```chat function off```
+   		</template>
+   
+   </category>
 </aiml>
