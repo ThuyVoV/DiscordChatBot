@@ -14,6 +14,7 @@ import org.alicebot.ab.utils.IOUtils;
 import com.discordchatbot.commands.ChatCommand;
 import com.discordchatbot.commands.ChatCommand2;
 import com.discordchatbot.commands.ShutdownCommand;
+import com.discordchatbot.commands.ToggleChatCommand;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
@@ -40,8 +41,9 @@ public class App {
         
         builder.setActivity(Activity.playing("OINK OINK GOTTA CODE!!"));
 
-        builder.addCommand(new ChatCommand(waiter));
+        //builder.addCommand(new ChatCommand(waiter));
         builder.addCommand(new ShutdownCommand());
+        builder.addCommand(new ToggleChatCommand());
         CommandClient client = builder.build();
         
 
