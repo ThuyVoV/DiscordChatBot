@@ -5,6 +5,7 @@ package com.discordchatbot.DiscordChatBot;
 import javax.security.auth.login.LoginException;
 
 import com.discordchatbot.commands.ChatCommand;
+import com.discordchatbot.commands.DeleteMessageCommand;
 import com.discordchatbot.commands.ShutdownCommand;
 import com.discordchatbot.commands.ToggleChatCommand;
 import com.jagrosh.jdautilities.command.CommandClient;
@@ -36,6 +37,7 @@ public class App {
         //builder.addCommand(new ChatCommand(waiter));
         builder.addCommand(new ShutdownCommand());
         builder.addCommand(new ToggleChatCommand());
+        builder.addCommand(new DeleteMessageCommand());
         CommandClient client = builder.build();
         
 
