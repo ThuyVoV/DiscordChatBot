@@ -5,7 +5,7 @@
 			yummy yummy
 		</pattern>
 		<template>
-			yummy in my tummy
+			yummy in <delay>2</delay>my tummy
 		</template>
 	</category>
 	
@@ -25,7 +25,7 @@
 			<think><set name="response"> <response index="1"/></set></think>
 			<condition name="response">
 				<li value="unknown"> I didn't say anything</li>
-				<li> I said, <response index="1"/> <split/> how's that?</li>
+				<li> I said, <response index="1"/> <split></split> how's that?</li>
 			</condition>
 		</template>
 	</category>
