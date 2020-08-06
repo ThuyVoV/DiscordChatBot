@@ -24,7 +24,7 @@ public class ChatCommand extends ListenerAdapter{
 		try {
 			if (ToggleChatCommand.chatEnable) {
 				//splits sentences ending with . ? !
-				String[] msg = event.getMessage().getContentRaw().split("\\.|\\?|\\!");
+				String[] msg = event.getMessage().getContentRaw().split("\\. |\\? |\\! ");
 				String message;
 				String response;
 
