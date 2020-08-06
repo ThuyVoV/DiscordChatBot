@@ -1,14 +1,11 @@
 package com.discordchatbot.commands;
 
-import java.nio.channels.Channel;
 import java.util.List;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageChannel;
-import net.dv8tion.jda.api.entities.MessageHistory;
 import net.dv8tion.jda.api.entities.TextChannel;
 
 public class DeleteMessageCommand extends Command{
