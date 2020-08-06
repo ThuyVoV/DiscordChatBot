@@ -6,4 +6,12 @@
 			there is the <get name="mapping"/>!
 		</template>
 	</category>
+	
+	<category>
+		<pattern>here comes that *</pattern>
+		<template>
+
+			that is the <map name="randommap"><star/></map>!
+		</template>
+	</category>
 </aiml>
