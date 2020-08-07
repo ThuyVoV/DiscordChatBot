@@ -1,25 +1,26 @@
 package com.discordchatbot.commands;
 
-import com.jagrosh.jdautilities.command.Command;
-import com.jagrosh.jdautilities.command.CommandEvent;
+import com.discordchatbot.DiscordChatBot.Config;
 
-public class ShutdownCommand extends Command {
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-    public ShutdownCommand()
-    {
-        this.name = "shutdown";
-        this.help = "safely shuts off the bot";
-        this.guildOnly = false;
-        this.ownerCommand = true;
-    }
-
-    @Override
-    protected void execute(CommandEvent event) {
-    	System.out.println("shutting down");
-    	event.getChannel().sendMessage("shutting down").queue();
-        event.reactWarning();
-        event.getJDA().shutdown();
-        System.exit(0);
-    }
-    
+public class ShutdownCommand extends ListenerAdapter{
+	
+	public void onMessageReceived(MessageReceivedEvent event) {
+		if(event.getAuthor().isBot())
+			return;
+		
+		String msg = event.getMessage().getContentRaw();
+		
+		if(msg.equalsIgnoreCase(Config.get("PREFIX") + "shutdown")){
+		
+			if(event.getAuthor().getId().contentEquals(Config.get("OWNER_ID"))) {
+				System.out.println("Shutting down!");
+				event.getTextChannel().sendMessage("Shutting down!").queue();
+				event.getJDA().shutdown();
+				System.exit(0);
+			}
+		}
+	}
 }
