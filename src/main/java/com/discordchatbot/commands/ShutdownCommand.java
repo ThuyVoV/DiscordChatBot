@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class ShutdownCommand extends ListenerAdapter{
 	
-	public void onMessageReceived(MessageReceivedEvent event) {
+	public void onMessageReceived(MessageReceivedEvent event) throws IllegalStateException{
 		if(event.getAuthor().isBot())
 			return;
 		
@@ -17,7 +17,7 @@ public class ShutdownCommand extends ListenerAdapter{
 		
 			if(event.getAuthor().getId().contentEquals(Config.get("OWNER_ID"))) {
 				System.out.println("Shutting down!");
-				event.getTextChannel().sendMessage("Shutting down!").queue();
+				event.getChannel().sendMessage("Shutting down!").queue();
 				event.getJDA().shutdown();
 				System.exit(0);
 			}
