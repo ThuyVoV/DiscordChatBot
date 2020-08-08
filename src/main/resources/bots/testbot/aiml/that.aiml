@@ -5,20 +5,26 @@
 	</category>
 	
 	<category>
+		<pattern>ok</pattern>
+		<that>yes i love to swim how about you</that>
+		<template>oh, how come?</template>
+	</category>
+	
+	<category>
 		<pattern>NO</pattern>
-		<that>yes, i love to swim, how about you</that>
+		<that>yes i love to swim how about you</that>
 		<template>oh, how come?</template>
 	</category>
 	
 	<category>
 		<pattern>YES</pattern>
-		<that>yes, i love to swim, how about you</that>
+		<that>yes i love to swim how about you</that>
 		<template>nice lets go swimming!</template>
 	</category>
 
 	<category>
 		<pattern>IDK</pattern>
-		<that>oh, how come</that>
+		<that>oh how come</that>
 		<template>
 			<random>
 				<li>ah oh well!</li>
@@ -26,5 +32,22 @@
 			</random>
 		
 		</template>
+	</category>
+	
+	<category>
+		<pattern>oink oink</pattern>
+		<template>oinkie oinkie</template>
+	</category>
+	
+	<category>
+		<pattern>YES</pattern>
+		<that>oinkie oinkie</that>
+		<template> yes oink</template>
+	</category>
+	
+	<category>
+		<pattern>NO</pattern>
+		<that>oinkie oinkie</that>
+		<template>no oink</template>
 	</category>
 </aiml>

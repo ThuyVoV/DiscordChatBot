@@ -21,4 +21,9 @@
 		<pattern>LAUNCH * DOT COM</pattern>
 		<template>Let's go to <star/>.com.  </template>
 	</category>
+	
+	<category>
+	<pattern>*</pattern>
+	<template>broke <input/></template>
+	</category>
 </aiml>
