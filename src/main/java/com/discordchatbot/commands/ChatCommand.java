@@ -28,14 +28,11 @@ public class ChatCommand extends ListenerAdapter{
 				String message;
 				String response;
 				
-				for(String s: msg)
-					System.out.println("\t"+s);
-				
 				for(int i = 0; i < msg.length; i++) {
+					
+					event.getChannel().sendTyping().queue();
 					message = msg[i];
 					response = ToggleChatCommand.chatSession.multisentenceRespond(message);
-					event.getChannel().sendTyping().queue();
-					
 					
 					event.getChannel().sendMessage(response).queue();
 					

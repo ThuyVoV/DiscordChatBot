@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+	<category>
+		<pattern>*</pattern>
+		<template>
+			<random>
+				<li>What does "<star/>" mean?</li>
+				<li>What do you mean?</li>
+				<li>What are you saying?</li>
+				<li>I have no idea what you're talking about!</li>
+				<li>Huh?</li>
+				<li>What?</li>
+				<li>Say what?</li>
+				<li>What the hell?</li>
+				<li>Dude... what?</li>
+				<li>Uh, can you say that again?</li>
+				<li>I don't get it!</li>
+			</random>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>HELLO</pattern>
+		<template>
+			<random>
+				<li>Hello!</li>
+				<li>Hi</li>
+				<li>Sup?</li>
+				<li>Yo!</li>
+				<li>Hello there!</li>
+				<li>Hey!</li>
+				<li>What's up?</li>
+				<li>Well, look who it is!</li>
+				<li>I know you!</li>
+				<li>Hiii!</li>
+			</random>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>HI</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+		<category>
+		<pattern>HEY</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+		<category>
+		<pattern>YO</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+		<category>
+		<pattern>SUP</pattern>
+		<template><srai>HELLO</srai></template>
+	</category>
+</aiml>

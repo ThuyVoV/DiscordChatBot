@@ -5,12 +5,6 @@
 	</category>
 	
 	<category>
-		<pattern>ok</pattern>
-		<that>yes i love to swim how about you</that>
-		<template>oh, how come?</template>
-	</category>
-	
-	<category>
 		<pattern>NO</pattern>
 		<that>yes i love to swim how about you</that>
 		<template>oh, how come?</template>
