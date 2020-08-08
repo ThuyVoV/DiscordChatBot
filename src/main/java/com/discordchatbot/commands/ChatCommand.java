@@ -27,10 +27,11 @@ public class ChatCommand extends ListenerAdapter{
 				String[] msg = event.getMessage().getContentRaw().split("\\. |\\? |\\! ");
 				String message;
 				String response;
-
+				
 				for(int i = 0; i < msg.length; i++) {
 					message = msg[i];
 					response = ToggleChatCommand.chatSession.multisentenceRespond(message);
+				
 					event.getChannel().sendMessage(response).queue();
 					
 					System.out.println("you: " + message);

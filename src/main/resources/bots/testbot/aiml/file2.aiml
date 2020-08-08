@@ -16,4 +16,9 @@
 			<get name="yum"/>
 		</template>
 	</category>
+	
+	<category>
+		<pattern>LAUNCH * DOT COM</pattern>
+		<template>Let's go to <star/>.com.  </template>
+	</category>
 </aiml>
