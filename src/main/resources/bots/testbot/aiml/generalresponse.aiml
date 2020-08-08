@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+<!--                               START FOR UNRECOGNIZE PATTERN                               -->                        
 	<category>
 		<pattern>*</pattern>
 		<template>
@@ -19,7 +20,9 @@
 			</random>
 		</template>
 	</category>
-	
+<!--                               END FOR UNRECOGNIZE PATTERN                               -->
+
+<!--                               START WAYS TO SAY HELLO                               -->
 	<category>
 		<pattern>HELLO</pattern>
 		<template>
@@ -54,4 +57,6 @@
 		<pattern>SUP</pattern>
 		<template><srai>HELLO</srai></template>
 	</category>
+	
+<!--                               END WAYS TO SAY HELLO                               -->
 </aiml>
