@@ -10,6 +10,8 @@ import com.discordchatbot.DiscordChatBot.Config;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
+import net.dv8tion.jda.api.entities.TextChannel;
+
 public class ToggleChatCommand extends Command{
 	private static final boolean TRACE_MODE = true;
 //	static String botName = "super";
