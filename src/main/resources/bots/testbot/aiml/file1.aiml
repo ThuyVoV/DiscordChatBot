@@ -36,7 +36,7 @@
 		<template> ok  YES!!</template>
 	</category>
 	
-	<category><pattern>COUNT UP TO <SET>NUMBER</SET></pattern>
+	<category><pattern>COUNT TO <SET>NUMBER</SET></pattern>
 		<template>
 			<think><set name="count">0</set></think>
 		<condition name="count">
@@ -45,4 +45,8 @@
 		</condition></template>
 	</category>
 
+	<category>
+		<pattern> IS <set>states</set> A STATE </pattern>
+		<template> Yes, <star/> is a state! </template>
+	</category>
 </aiml>

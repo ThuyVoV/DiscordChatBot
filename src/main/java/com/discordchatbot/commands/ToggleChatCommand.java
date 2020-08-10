@@ -12,8 +12,8 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 
 public class ToggleChatCommand extends Command{
 	private static final boolean TRACE_MODE = true;
-	static String botName = "super";
-//	static String botName = "testbot";
+//	static String botName = "super";
+	static String botName = "testbot";
 	
 	public static boolean chatEnable = false;
 	public static String resourcesPath;
