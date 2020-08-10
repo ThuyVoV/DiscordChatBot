@@ -35,4 +35,14 @@
 		<delay>3</delay>
 		<template> ok  YES!!</template>
 	</category>
+	
+	<category><pattern>COUNT UP TO <SET>NUMBER</SET></pattern>
+		<template>
+			<think><set name="count">0</set></think>
+		<condition name="count">
+			<li><value><star/></value></li>
+			<li><set name="count"><map><name>successor</name><get name="count"/></map></set> <loop/></li>
+		</condition></template>
+	</category>
+
 </aiml>

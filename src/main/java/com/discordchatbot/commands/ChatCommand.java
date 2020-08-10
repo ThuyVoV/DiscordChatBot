@@ -11,7 +11,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class ChatCommand extends ListenerAdapter{
 
-
 	public void onMessageReceived(@Nonnull MessageReceivedEvent event) throws IllegalArgumentException{
 		
 		if(event.getAuthor().isBot()) {
@@ -49,6 +48,4 @@ public class ChatCommand extends ListenerAdapter{
 			e.printStackTrace();
 		}
 	}
-	
-
 }

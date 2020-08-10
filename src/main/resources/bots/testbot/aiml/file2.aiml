@@ -22,5 +22,26 @@
 		<template>Let's go to <star/>.com.  </template>
 	</category>
 	
+	<category>
+		<pattern>which topic</pattern>
+		<template>
+			<random>
+				<li>topic 1</li>
+				<li>topic 2</li>
+			</random>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>one</pattern>
+		<that>topic 1</that>
+		<template>oh so you want topic 1</template>
+	</category>
+	<category>
+		<pattern>two</pattern>
+		<that>topic 2</that>
+		<template>oh so you want topic 2</template>
+	</category>
 
+	
 </aiml>

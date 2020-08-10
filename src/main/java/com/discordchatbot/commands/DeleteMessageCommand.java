@@ -40,10 +40,5 @@ public class DeleteMessageCommand extends Command{
 		catch (IllegalArgumentException e) {
 			event.reply("Enter a number between 1-100.");
 		}
-
-		
 	}
-	
-	
-
 }
