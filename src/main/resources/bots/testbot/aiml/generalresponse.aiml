@@ -18,6 +18,7 @@
 				<li>Uh, can you say that again?</li>
 				<li>I don't get it!</li>
 				<li>I don't know.</li>
+				<li>Tell me more!</li>
 			</random>
 		</template>
 	</category>
@@ -38,6 +39,7 @@
 				<li>Well, look who it is!</li>
 				<li>I know you!</li>
 				<li>Hiii!</li>
+				<li>What do you want?</li>
 			</random>
 		</template>
 	</category>
