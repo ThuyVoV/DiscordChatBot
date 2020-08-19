@@ -62,4 +62,58 @@
 	</category>
 	
 <!--                               END WAYS TO SAY HELLO                               -->
+
+<!--                               START WAYS TO RESPONSE HOW ARE YOU                               -->
+	<category>
+		<pattern>HOW ARE YOU</pattern>
+		<template>
+			<random>
+				<li>Good</li>
+				<li>Bad</li>
+				<li>I'm ok</li>
+				<li>Dead!!</li>
+			</random>
+		</template>
+	</category>
+	<category>
+		<pattern>HOW ARE YOU DOING</pattern>
+		<template><srai>HOW ARE YOU ^</srai></template>
+	</category>
+<!--                               END WAYS TO RESPONSE HOW ARE YOU                               -->
+
+<!--                               START WAYS FOR NAMES                               -->
+	
+	
+	<category>
+		<pattern>WHAT IS YOUR NAME</pattern>
+		<template>
+			<think><set name="myname">Uyen</set></think>
+			My name is <get name="myname"/>
+		</template>
+	</category>
+	<category>
+		<pattern>MY NAME IS *</pattern>
+		<template>
+			<think><set name="username"><star/></set></think>
+			Hello <star/>
+		</template>
+	</category>
+	<category>
+		<pattern>WHAT IS MY NAME</pattern>
+		<template>
+			<condition name = "username">
+				<li value="unknown">I don't know your name</li>
+				<li>
+					<random>
+						<li>Your name is <get name="username"/></li>
+						<li>I believe your name is <get name="username"/></li>
+						<li>Uhh.. it's <get name="username"/>, I think?</li>
+					</random>
+				</li>
+			</condition>
+			
+		</template>
+	</category>
+	
+<!--                               END WAYS FOR NAMES                               -->
 </aiml>
